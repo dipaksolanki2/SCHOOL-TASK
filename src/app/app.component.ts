@@ -27,6 +27,11 @@ export class AppComponent implements OnInit {
       studentName: '',
       rollNo: '',
       Standard: '',
+      // gender:  this.fb.control({
+      //   male: false,
+      //   female: false,
+      //   other: false,
+      // }),
       exams: this.fb.array([]),
     });
   }
@@ -55,8 +60,9 @@ export class AppComponent implements OnInit {
 
   //! ------------------------Subjects FormArray----------------------------------------
   subjects(studentIndex: number, examIndex: number) {
-    let students = this.students().at(studentIndex).get('exams') as FormArray;
-    return students.at(examIndex).get('subjects') as FormArray;
+    let exams = this.students().at(studentIndex).get('exams') as FormArray;
+    let subjects = exams.at(examIndex).get('subjects') as FormArray;
+    return subjects;
   }
 
   newSubject(): FormGroup {
@@ -73,4 +79,5 @@ export class AppComponent implements OnInit {
   onSubmit() {
     console.log(this.schoolForm.value);
   }
+
 }
