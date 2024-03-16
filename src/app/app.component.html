@@ -16,6 +16,13 @@
           <input type="text" formControlName="rollNo" /><br><br>
           Standard:
           <input type="text" formControlName="Standard" /><br><br>
+          
+          <!-- <label for="gender">gender</label>
+          <select id="gender" formControlName="gender" style="margin-bottom: 10px;">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select> -->
 
 
           <!-- ! Exams Araay -->
@@ -36,7 +43,7 @@
                         <div [formGroupName]="subjectIndex">
                            Subject Name {{subjectIndex + 1}} :
                           <input type="text" formControlName="subjectName" /><br><br>
-                        </div>
+                        </div> 
                       </div>
 
                     </div>
@@ -59,9 +66,14 @@
         </div>
       </div>
 
-      <button type="button" (click)="addStudent()" class="btn btn-secondary">Add Student</button>
+      <button [disabled]="schoolForm.invalid" type="button" (click)="addStudent()" class="btn btn-secondary">Add Student</button>
+      <hr>
     </div>
 
     <button class="btn btn-primary" type="submit">Submit Form</button>
   </form>
 </div>
+
+<!-- <div class="container" style="background-color: antiquewhite; text-align: center;">
+  {{this.schoolForm.value | json}}
+</div> -->
